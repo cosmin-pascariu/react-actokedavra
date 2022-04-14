@@ -14,7 +14,7 @@ const Description = styled.section`
   -webkit-box-orient: vertical;
 `;
 
-const ReadMore = styled.div`
+const ExtendText = styled.div`
   color: #f4b740;
   font-size: 10px;
   font-weight: 600;
@@ -43,10 +43,10 @@ const ActorDescription = ({ actorDescription }) => {
   return (
     <>
       <Description lines={viewDescription}>{actorDescription}</Description>
-      <ReadMore rot={viewDescription} onClick={toggleViewDescription}>
-        <span>Read more</span>
+      <ExtendText rot={viewDescription} onClick={toggleViewDescription}>
+        {!viewDescription ? <span>Read more</span> : <span>Read less</span>}
         <MdOutlineArrowBackIosNew />
-      </ReadMore>
+      </ExtendText>
     </>
   );
 };

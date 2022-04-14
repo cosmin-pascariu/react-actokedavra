@@ -12,6 +12,7 @@ const FooterContainer = styled.div`
   font-size: 13px;
   font-weight: 500;
   border-top: 1px solid #dddddd;
+  padding: 0 10px;
 `;
 
 const Footer = () => {

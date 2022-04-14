@@ -1,7 +1,6 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import ActorPicture from './ActorPicture';
-import Leonardo from '../Images/leonardo.jpeg';
 import ActorName from './ActorName';
 import ActorProfession from './ActorProfession';
 import LikeButton from './LikeButton';
@@ -31,25 +30,36 @@ const Row = styled.div`
   flex-wrap: wrap;
 `;
 
-const ActorCard = () => {
+const ActorCard = ({
+  picture,
+  actorName,
+  professionText,
+  nrLikes,
+  bdgText,
+  actorDescription,
+}) => {
+  const [cards, setCards] = useState([]);
+  useEffect(() => {
+    const tasks = bdgText?.split(',');
+    const newCards = tasks?.map((card, index) => (
+      <BadgeTask key={index} bdgText={card} />
+    ));
+    setCards(newCards);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   return (
     <CardContainer>
       <CloseButton />
-      <ActorPicture picture={Leonardo} />
+      <ActorPicture picture={picture} />
       <CardContent>
-        <ActorName actorName={'Leonardo Dicaprio'} />
+        <ActorName actorName={actorName} />
         <Row>
-          <ActorProfession professionText={'Actor & Writer'} />
-          <LikeButton nrLikes={47} />
+          <ActorProfession professionText={professionText} />
+          <LikeButton nrLikes={nrLikes} />
         </Row>
-        <Row>
-          <BadgeTask bdgText={'Traveling'} />
-          <BadgeTask bdgText={'Reading'} />
-          <BadgeTask bdgText={'Crossword puzzles'} />
-        </Row>
-        <ActorDescription
-          actorDescription={`Leonardo DiCaprio is an actor known for his edgy, unconventional roles. He started out in television before moving on to film, scoring an Oscar nomination for his role in What's Eating Gilbert Grape (1993). In 1997, DiCaprio starred in James Cameron's epic drama Titanic, which made him a star. The actor has also paired up with iconic director Martin Scorsese for several projects, including The Aviator (2004) and The Departed (2006). His more recent films include Inception (2010), Django Unchained (2012), The Wolf of Wall Street (2013) and The Revenant (2015), winning his first Oscar for the latter.`}
-        />
+        <Row>{cards}</Row>
+        <ActorDescription actorDescription={actorDescription} />
         <EditButton />
       </CardContent>
     </CardContainer>
