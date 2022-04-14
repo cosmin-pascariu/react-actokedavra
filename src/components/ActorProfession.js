@@ -5,10 +5,11 @@ const Profession = styled.h2`
   color: #4e4b66;
   font-size: 11px;
   font-weight: 300;
+  margin-right: auto;
 `;
 
-const ActProfession = ({ prfText }) => {
-  return <Profession>{prfText}</Profession>;
+const ActorProfession = ({ professionText }) => {
+  return <Profession>{professionText}</Profession>;
 };
 
-export default ActProfession;
+export default ActorProfession;

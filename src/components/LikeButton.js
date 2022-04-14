@@ -10,7 +10,7 @@ const LikesContainer = styled.div`
   p {
     font-weight: 600;
     font-size: 11px;
-    margin: 10px 1px;
+    margin-right: 2px;
   }
 `;
 
@@ -18,7 +18,7 @@ const LikeButton = ({ nrLikes }) => {
   return (
     <LikesContainer>
       <p>{nrLikes}</p>
-      <BiLike style={{ margin: '10px 1px' }} />
+      <BiLike />
     </LikesContainer>
   );
 };

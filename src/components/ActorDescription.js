@@ -3,8 +3,8 @@ import styled from 'styled-components';
 import { MdOutlineArrowBackIosNew } from 'react-icons/md';
 
 const Description = styled.section`
+  margin-top: 3px;
   font-weight: 300;
-  width: 160px;
   font-size: 10px;
   color: #6e7191;
   overflow: hidden;
@@ -19,7 +19,6 @@ const ReadMore = styled.div`
   font-size: 10px;
   font-weight: 600;
   height: min-content;
-  /* width: min-content; */
   display: flex;
   align-items: center;
   cursor: pointer;
@@ -34,17 +33,17 @@ const ReadMore = styled.div`
   }
 `;
 
-const ActDescription = ({ actDesc }) => {
+const ActorDescription = ({ actorDescription }) => {
   const [viewDescription, setViewDescription] = useState(false);
 
-  const toggleViewDesc = () => {
+  const toggleViewDescription = () => {
     setViewDescription(!viewDescription);
   };
 
   return (
     <>
-      <Description lines={viewDescription}>{actDesc}</Description>
-      <ReadMore rot={viewDescription} onClick={toggleViewDesc}>
+      <Description lines={viewDescription}>{actorDescription}</Description>
+      <ReadMore rot={viewDescription} onClick={toggleViewDescription}>
         <span>Read more</span>
         <MdOutlineArrowBackIosNew />
       </ReadMore>
@@ -52,4 +51,4 @@ const ActDescription = ({ actDesc }) => {
   );
 };
 
-export default ActDescription;
+export default ActorDescription;

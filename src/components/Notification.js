@@ -1,13 +1,11 @@
-import React from 'react';
+import { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import { AiOutlineCheckCircle } from 'react-icons/ai';
 import { IoCloseSharp } from 'react-icons/io5';
-import { BsQuestionCircle } from 'react-icons/bs';
 
-const NotifContainer = styled.div`
-  /* margin-left: -30px; */
-  /* width: 375px; */
+const NotificationContainer = styled.div`
+  position: absolute;
   height: 72px;
+  width: 100%;
   display: flex;
   align-items: center;
   background: ${({ Color }) => (Color ? '#e5fff2' : '#FEFEE5')};
@@ -17,6 +15,7 @@ const NotifContainer = styled.div`
   svg {
     height: 22px;
     width: 22px;
+    margin: 0 10px;
   }
 
   svg.closeBtn {
@@ -30,22 +29,31 @@ const NotifContainer = styled.div`
   }
 `;
 
-const Notification = ({ added }) => {
+const Notification = ({
+  lightColor,
+  icon,
+  notificationText,
+  isVisible: visible,
+}) => {
+  const [isVisible, setIsVisibile] = useState(visible);
+
+  useEffect(() => {
+    setIsVisibile(visible);
+  }, [visible]);
+
   return (
-    <NotifContainer Color={added}>
-      {added === true ? (
-        <>
-          <AiOutlineCheckCircle />
-          <p>Actor added succesfully.</p>{' '}
-        </>
-      ) : (
-        <>
-          <BsQuestionCircle />
-          <p>You can add max. 7 actors.</p>
-        </>
-      )}
-      <IoCloseSharp className='closeBtn' />
-    </NotifContainer>
+    isVisible && (
+      <NotificationContainer Color={lightColor}>
+        {icon}
+        <p>{notificationText}</p>
+        <IoCloseSharp
+          className='closeBtn'
+          onClick={() => {
+            setIsVisibile(false);
+          }}
+        />
+      </NotificationContainer>
+    )
   );
 };
 

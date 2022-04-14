@@ -3,7 +3,6 @@ import styled from 'styled-components';
 
 const AddButton = styled.button`
   height: 56px;
-  /* width: 100%; */
   width: 335px;
   border-radius: 12px;
   background-color: #6308f7;
@@ -17,8 +16,8 @@ const AddButton = styled.button`
     pointer-events: none;
   }
 `;
-const AddNewActButton = () => {
-  return <AddButton>Add new actor</AddButton>;
+const AddNewActorButton = ({ addNewButtonText }) => {
+  return <AddButton>{addNewButtonText}</AddButton>;
 };
 
-export default AddNewActButton;
+export default AddNewActorButton;

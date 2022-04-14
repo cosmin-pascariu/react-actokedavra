@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 const BadgeStyle = styled.div`
   height: 21px;
-  width: min-content;
+
   padding: 0 10px;
   border-radius: 8px;
   background-color: #e5ebfe;
@@ -13,6 +13,7 @@ const BadgeStyle = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: 2px 4px 4px 0;
 `;
 
 const BadgeTask = ({ bdgText }) => {

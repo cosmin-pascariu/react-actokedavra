@@ -32,7 +32,6 @@ const SortButton = ({ btnText }) => {
       ) : (
         <></>
       )}
-      {/* {btnText === 'Delete' ? <BiTrash /> : ''} */}
       {btnText}
     </SortBtn>
   );

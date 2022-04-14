@@ -1,25 +1,17 @@
 import { createGlobalStyle } from 'styled-components';
-import ActPicture from './components/ActPicture';
 import AppTitle from './components/AppTitle';
-import BadgeTask from './components/BadgeTask';
-import Button from './components/Button';
-import CloseButton from './components/CloseButton';
-import ActName from './components/ActName';
-import ActProfession from './components/ActProfession';
-import LikeButton from './components/LikeButton';
-import ActDescription from './components/ActDescription';
-import EditButton from './components/EditButton';
 import Notification from './components/Notification';
 import Footer from './components/Footer';
-import AddNewActButton from './components/AddNewActButton';
-import CardCheckbox from './components/CardCheckbox';
-import SortButton from './components/SortButton';
+import { AiOutlineCheckCircle } from 'react-icons/ai';
+import { BsQuestionCircle } from 'react-icons/bs';
+import Header from './components/Header';
+import HomePage from './pages/HomePage';
 
 const GlobalStyle = createGlobalStyle`
   *{
     font-family: 'Poppins',sans-serif;
-    margin: 10px;
     box-sizing: border-box;
+    margin: 0;
     }
 
     button{
@@ -28,34 +20,35 @@ const GlobalStyle = createGlobalStyle`
 
     body{
       margin: 0;
-      background-color: #e8e8e8;
+      width: 100%;
+      background-color: #f8f4fc;
     }
+
+    .mainContainer{
+      width: 100vw;
+    }
+
 `;
 function App() {
   return (
-    <>
+    <div className='mainContainer'>
       <GlobalStyle />
-      <Notification added={true} />
-      <AppTitle />
-      <Button btnText={'Sort'} />
-      <Button btnText={'Select'} />
-      <CloseButton />
-      <CardCheckbox />
-      <ActPicture />
-      <ActName actName={'Leonardo Dicaprio'} />
-      <ActProfession prfText={'Actor & Writer'} />
-      <LikeButton nrLikes={47} />
-      <BadgeTask bdgText={'Traveling'} />
-      <ActDescription
-        actDesc={`Leonardo DiCaprio is an actor known for his edgy, unconventional roles. He started out in television before moving on to film, scoring an Oscar nomination for his role in What's Eating Gilbert Grape (1993). In 1997, DiCaprio starred in James Cameron's epic drama Titanic, which made him a star. The actor has also paired up with iconic director Martin Scorsese for several projects, including The Aviator (2004) and The Departed (2006). His more recent films include Inception (2010), Django Unchained (2012), The Wolf of Wall Street (2013) and The Revenant (2015), winning his first Oscar for the latter.`}
+      <Notification
+        lightColor={true}
+        isVisible={true}
+        icon={<AiOutlineCheckCircle />}
+        notificationText={'Actor added succesfully!'}
       />
-      <AddNewActButton />
-      <EditButton />
-      <SortButton btnText={'Ascending'} />
-      <SortButton btnText={'Descending'} />
-      <SortButton btnText={'Delete'} />
+      <Notification
+        lightColor={false}
+        isVisible={true}
+        icon={<BsQuestionCircle />}
+        notificationText={`You can't add more than 7 actors!`}
+      />
+      <Header content={<AppTitle />} />
+      <HomePage />
       <Footer />
-    </>
+    </div>
   );
 }
 

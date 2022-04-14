@@ -6,8 +6,8 @@ const Name = styled.h1`
   font-weight: 600;
 `;
 
-const ActName = ({ actName }) => {
-  return <Name>{actName}</Name>;
+const ActorName = ({ actorName }) => {
+  return <Name>{actorName}</Name>;
 };
 
-export default ActName;
+export default ActorName;

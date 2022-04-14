@@ -3,8 +3,6 @@ import styled from 'styled-components';
 import AppTitle from './AppTitle';
 
 const FooterContainer = styled.div`
-  margin-left: -20px;
-  margin-bottom: -20px;
   width: 100vw;
   height: 56px;
   background-color: #fff;
