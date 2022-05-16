@@ -42,7 +42,7 @@ const HomePage = () => {
         />
         <ActorCard
           picture={Dwayne}
-          actorName={'Jennifer Aniston'}
+          actorName={'Dwayne Johnson'}
           professionText={'Actor & Producer'}
           nrLikes={32}
           bdgText={'Music,Wrestling,Martial Arts'}
@@ -50,11 +50,6 @@ const HomePage = () => {
         />
       </Cards>
       <AddNewActorButton addNewButtonText={'Add new actor'} />
-      {/*
-      <EditButton />
-      <SortButton btnText={'Ascending'} />
-      <SortButton btnText={'Descending'} />
-      <SortButton btnText={'Delete'} /> */}
     </HomePageContainer>
   );
 };

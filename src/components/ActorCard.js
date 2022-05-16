@@ -13,7 +13,7 @@ const CardContainer = styled.div`
   width: min-content;
   display: flex;
   flex-direction: column;
-  margin-right: auto;
+  margin: 0 auto;
 `;
 
 const CardContent = styled.div`

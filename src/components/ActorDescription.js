@@ -15,6 +15,7 @@ const Description = styled.section`
 `;
 
 const ExtendText = styled.div`
+  width: fit-content;
   color: #f4b740;
   font-size: 10px;
   font-weight: 600;

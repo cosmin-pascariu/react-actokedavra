@@ -9,6 +9,7 @@ const ButtonStyle = styled.button`
   font-weight: 500;
   font-size: 14px;
   background-color: #eee5fe;
+  margin: 0 auto;
 `;
 
 const Button = ({ btnText }) => {
